@@ -1,0 +1,7 @@
+[myserver]
+web-1
+
+
+[myserver:vars]
+user_name=tech
+user_dep="Dev"

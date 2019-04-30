@@ -1,0 +1,17 @@
+---
+
+- name: Adding New user to server
+  user:
+    name: "{{ user_name }}"
+    comment: "{{ user_dep }}"
+    shell: /bin/bash
+  tags:
+    - add-user
+
+- name: ssh access
+  authorized_key:
+    user: "{{ user_name }}"
+    state: present
+    key: "{{ lookup('file', '../id_rsa.pub') }}"
+  tags:
+    - grant-access

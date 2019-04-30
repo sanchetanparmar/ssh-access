@@ -1,0 +1,9 @@
+---
+
+- name: add user
+  import_tasks: grant.yml
+  when: action == "grant-access"
+
+- name: Include remove user
+  import_tasks: revoke.yml
+  when: action == "revoke-access"
